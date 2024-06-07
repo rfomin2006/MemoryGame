@@ -25,6 +25,11 @@ function shuffle(array) {
     }
 }
 
+const win = () => {
+    alert("YOU WON!!!!")
+    initField()
+}
+
 const hide = (cells) => {
     let counter = 1
     field.querySelectorAll(".cell").forEach(el => {
@@ -35,10 +40,10 @@ const hide = (cells) => {
                 el.classList.add("cell_active")
                 el.removeEventListener('click', handleClick)
                 counter++
-                if (Number(el.firstChild.innerHTML) == 0) {
+                if (Number(el.firstChild.innerHTML) == cells) {
+                    setTimeout(win, 100)
                     console.log(counter)
-                    alert("YOU WON!!!!")
-                    initField()
+                    
                 }
             } else {
                 el.firstChild.style.opacity = "1"
